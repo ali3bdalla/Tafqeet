@@ -277,7 +277,7 @@ class Tafqeet extends Helper
         $words = '';
         $words.= $this->getWordsForNumberBeforeComma();
         $words.= $this->getWordsForNumberAfterComma();
-        $words.='فقط لاغير';
+        $words.=' فقط لاغير';
         return str_replace('  ',' ',$words);
 
     }
@@ -290,7 +290,7 @@ class Tafqeet extends Helper
 
 }
 
-$work = new Tafqeet('3234434.47');
-
-print_r( $work->run());
-echo  "\n";
+//$work = new Tafqeet('5662332.8');
+//
+//print_r( $work->run());
+//echo  "\n";

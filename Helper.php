@@ -4,9 +4,9 @@ namespace Tafqeet\Tafqeet;
 class Helper {
 
 
-    protected  $single_after_comma = 'هللة';
-    protected  $multi_after_comma = 'هللات';
-    protected  $main_currency = 'ريال';
+    protected  $single_after_comma = 'قرش';
+    protected  $multi_after_comma = 'قروش';
+    protected  $main_currency = 'جنيه';
    protected $ones = [
         0 => "صفر",
         1 => "واحد",
