@@ -36,7 +36,7 @@ class Tafqeet extends Helper
         $this->number_array_count = count($this->number_array);
 
 
-        if(count($split_array)>=2)
+        if(count($split_array)>=1)
         {
             $this->number_after_comma_array = str_split($split_array[1]);
             $this->number_after_comma_array_count = count($this->number_after_comma_array);
@@ -100,17 +100,36 @@ class Tafqeet extends Helper
     {
         $position = $len - $index;
 //       ;
-        if($index==0 && $number<=3)
+        if($index==0 && $number<=3 && $len >= 4)
         {
             $arr =  $this->detectTheTargetedArrayForTheCurrentPosition(1);
             $arr2 = $this->detectTheTargetedArrayForTheCurrentPosition($position);
 
-           return $arr[$position] .' '. $arr2[1];
+           return $arr[$number] .' '. $arr2[1];
         }
+
+
+        if($index==1 && $number<=3 && $len >= 5)
+        {
+            $arr =  $this->detectTheTargetedArrayForTheCurrentPosition(1);
+            $arr2 = $this->detectTheTargetedArrayForTheCurrentPosition($position);
+
+            return $arr[$number] .' '. $arr2[1];
+        }
+
+
+        if($index==2 && $number<=3 && $len >= 6)
+        {
+            $arr =  $this->detectTheTargetedArrayForTheCurrentPosition(1);
+            $arr2 = $this->detectTheTargetedArrayForTheCurrentPosition($position);
+
+            return $arr[$number] .' '. $arr2[1];
+        }
+
+
+
         $arr =  $this->detectTheTargetedArrayForTheCurrentPosition($position);
-//        var_dump($index);
-//        var_dump($position);
-//        var_dump($arr);
+
         return $arr[$number];
     }
 
@@ -181,7 +200,8 @@ class Tafqeet extends Helper
                 {
                     $words.= $this->getWordsForTenPosition($index) . ' و ';
                 }
-                elseif($this->number_before_comma_array_count - 1== $index)
+                elseif($this->number_before_comma_array_count - 1== $index &&
+                    $this->number_before_comma_array_count != 1)
                 {
 
                 }
@@ -209,11 +229,12 @@ class Tafqeet extends Helper
                 $number_after_comma_sumation = $number_after_comma_sumation * 10;
             }else
             {
-                if($this->number_after_comma_array_count - 2== $index && $key!=0)
+                if($this->number_after_comma_array_count - 2== $index)
                 {
                     $words.= $this->getWordsForLeftTenPosition($index) . ' و ';
                 }
-                elseif($this->number_after_comma_array_count - 1== $index && $key!=0)
+                elseif($this->number_after_comma_array_count - 1== $index && $key!=0 &&
+                    $this->number_after_comma_array_count != 1)
                 {
 
                 }else if($this->validateNumber($key,$index))
@@ -229,7 +250,8 @@ class Tafqeet extends Helper
         {
             return '';
         }
-        return  strrev(implode(strrev($this->getNameOfHala($number_after_comma_sumation)), explode(strrev('و'), strrev($words), 2))); //output:
+        return  strrev(implode(strrev($this->getNameOfHala($number_after_comma_sumation) . ' '), explode(strrev('و'),
+        strrev($words), 2))); //output:
     }
 
 
@@ -250,7 +272,7 @@ class Tafqeet extends Helper
 
 }
 
-$work = new Tafqeet('3014.32');
+$work = new Tafqeet('323434.47');
 
 print_r( $work->run());
 echo  "\n";
