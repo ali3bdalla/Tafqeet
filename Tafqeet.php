@@ -14,24 +14,34 @@ class Tafqeet extends Helper
 
     public function __construct($number)
     {
+
         $this->number = $number;
     }
     public function run()
     {
+
+        if(!is_numeric($this->number))
+        {
+            return 0;
+        }
         $this->splitToArray(); // split number to array
         $this->getStartupPointTitle();
         return $this->doWork();
     }
     private function splitToArray()
     {
-        $split_array = explode('.',$this->number);
 
+        $split_array = explode('.',$this->number);
         $this->number_array = str_split($this->number);
         $this->number_array_count = count($this->number_array);
 
 
-        $this->number_after_comma_array = str_split($split_array[1]);
-        $this->number_after_comma_array_count = count($this->number_after_comma_array);
+        if(count($split_array)>=2)
+        {
+            $this->number_after_comma_array = str_split($split_array[1]);
+            $this->number_after_comma_array_count = count($this->number_after_comma_array);
+        }
+
 
 //        var_dump($split_array);
 //        exit();
@@ -76,25 +86,114 @@ class Tafqeet extends Helper
         if($position==5)
             return $this->millions;
 
+
+        if($position==6)
+            return $this->billions;
+
+
+
+        if($position==7)
+            return $this->trillions;
+
     }
     private  function  getRightPosition($number,$index,$len)
     {
         $position = $len - $index;
+//       ;
+        if($index==0 && $number<=3)
+        {
+            $arr =  $this->detectTheTargetedArrayForTheCurrentPosition(1);
+            $arr2 = $this->detectTheTargetedArrayForTheCurrentPosition($position);
+
+           return $arr[$position] .' '. $arr2[1];
+        }
         $arr =  $this->detectTheTargetedArrayForTheCurrentPosition($position);
+//        var_dump($index);
+//        var_dump($position);
+//        var_dump($arr);
         return $arr[$number];
     }
+
+
+
+    private  function  getWordsForTenPosition($index)
+    {
+        $len = $this->number_before_comma_array_count;
+        $index2 = $index + 1;
+        $position = $len - $index;
+        $position2 = $len - $index2;
+        $number1 = $this->number_before_comma_array[$index];
+        $number2 = $this->number_before_comma_array[$index2];
+        $arr = $this->detectTheTargetedArrayForTheCurrentPosition($position);
+        $arr2 = $this->detectTheTargetedArrayForTheCurrentPosition($position2);
+        if($number2 == 0)
+        {
+            return    $arr[$number1];
+        }
+        if ($number1 ==1)
+        {
+            return $arr2[$number2] . ' ' . $arr[$number1];
+        }
+        return  $arr2[$number2] . ' و ' . $arr[$number1];
+    }
+
+
+
+    private  function  getWordsForLeftTenPosition($index)
+    {
+        $len = $this->number_after_comma_array_count;
+        $index2 = $index + 1;
+        $position = $len - $index;
+        $position2 = $len - $index2;
+        $number1 = $this->number_after_comma_array[$index];
+        $number2 = $this->number_after_comma_array[$index2];
+        $arr = $this->detectTheTargetedArrayForTheCurrentPosition($position);
+        $arr2 = $this->detectTheTargetedArrayForTheCurrentPosition($position2);
+        if($number2 == 0)
+        {
+            return    $arr[$number1] . ' ' . $this->single_after_comma;
+        }
+        if ($number1 ==1)
+        {
+            return $arr2[$number2] . ' ' . $arr[$number1] . ' ' . $this->single_after_comma;
+        }
+        return  $arr2[$number2] . ' و ' . $arr[$number1] .' '. $this->single_after_comma;
+    }
+
 
     private function getWordsForNumberBeforeComma()
     {
         $words = "";
         foreach ($this->number_before_comma_array as $index => $key)
         {
-            if($this->validateNumber($key,$index))
+
+            if($key==0)
             {
-                $words.= $this->getRightPosition($key,$index,$this->number_before_comma_array_count) . ' و';
+            }else
+            {
+                $goToTen = false;
+                if($this->number_before_comma_array_count - 2== $index)
+                {
+                   $item = $this->number_before_comma_array[$this->number_before_comma_array_count - 2];
+                    $goToTen = $item != 0;
+                }
+                if($goToTen && $key!=0 )
+                {
+                    $words.= $this->getWordsForTenPosition($index) . ' و ';
+                }
+                elseif($this->number_before_comma_array_count - 1== $index)
+                {
+
+                }
+                else
+               if($this->validateNumber($key,$index))
+                {
+                    $words.= $this->getRightPosition($key,$index,$this->number_before_comma_array_count) . ' و';
+                }
             }
+
         }
-       return  strrev(implode(strrev($this->main_currency), explode(strrev('و'), strrev($words), 2))); //output:
+       return  strrev(implode(strrev($this->main_currency), explode(strrev('و'), strrev($words), 2))) . ''; //output:
         // bourbon, scotch,;
     }
 
@@ -108,14 +207,28 @@ class Tafqeet extends Helper
             if($key==0)
             {
                 $number_after_comma_sumation = $number_after_comma_sumation * 10;
-            }
-            if($this->validateNumber($key,$index))
+            }else
             {
-                $number_after_comma_sumation+= $key;
-                $words.= $this->getRightPosition($key,$index,$this->number_after_comma_array_count) . ' و';
+                if($this->number_after_comma_array_count - 2== $index && $key!=0)
+                {
+                    $words.= $this->getWordsForLeftTenPosition($index) . ' و ';
+                }
+                elseif($this->number_after_comma_array_count - 1== $index && $key!=0)
+                {
+
+                }else if($this->validateNumber($key,$index))
+                {
+                    $number_after_comma_sumation+= $key;
+                    $words.= $this->getRightPosition($key,$index,$this->number_after_comma_array_count) . ' و';
+                }
             }
+
+
         }
-        var_dump($number_after_comma_sumation);
+        if($words==" و")
+        {
+            return '';
+        }
         return  strrev(implode(strrev($this->getNameOfHala($number_after_comma_sumation)), explode(strrev('و'), strrev($words), 2))); //output:
     }
 
@@ -126,7 +239,7 @@ class Tafqeet extends Helper
         $words = '';
         $words.= $this->getWordsForNumberBeforeComma();
         $words.= $this->getWordsForNumberAfterComma();
-        return $words.=' فقط لاغير';
+        return $words.='فقط لاغير';
     }
 
 
@@ -137,7 +250,7 @@ class Tafqeet extends Helper
 
 }
 
-$work = new Tafqeet('1000.30');
+$work = new Tafqeet('3014.32');
 
 print_r( $work->run());
 echo  "\n";

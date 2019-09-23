@@ -1,12 +1,11 @@
 {
     "name": "3li3bdalla/tafqeet",
     "description": "tafqeet , convert numbers to arabic words",
-    "type": "library",
+    "type": "metapackage",
     "authors": [
         {
             "name": "ali abdalla",
             "email": "ali.dev.sd@gmail.com"
         }
-    ],
-    "require": {}
+    ]
 }
