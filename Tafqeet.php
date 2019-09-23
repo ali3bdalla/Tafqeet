@@ -100,7 +100,7 @@ class Tafqeet extends Helper
     {
         $position = $len - $index;
 //       ;
-        if($index==0 && $number<=3 && $len >= 4)
+        if($index==0 && $number>=3 && $len >= 4)
         {
             $arr =  $this->detectTheTargetedArrayForTheCurrentPosition(1);
             $arr2 = $this->detectTheTargetedArrayForTheCurrentPosition($position);
@@ -109,7 +109,7 @@ class Tafqeet extends Helper
         }
 
 
-        if($index==1 && $number<=3 && $len >= 5)
+        if($index==1 && $number>=3 && $len >= 5)
         {
             $arr =  $this->detectTheTargetedArrayForTheCurrentPosition(1);
             $arr2 = $this->detectTheTargetedArrayForTheCurrentPosition($position);
@@ -118,13 +118,29 @@ class Tafqeet extends Helper
         }
 
 
-        if($index==2 && $number<=3 && $len >= 6)
+        if($index==2 && $number>=3 && $len >= 6)
         {
             $arr =  $this->detectTheTargetedArrayForTheCurrentPosition(1);
             $arr2 = $this->detectTheTargetedArrayForTheCurrentPosition($position);
 
             return $arr[$number] .' '. $arr2[1];
         }
+
+
+        if($index==3 && $number>=3 && $len >= 7)
+        {
+
+
+            $arr =  $this->detectTheTargetedArrayForTheCurrentPosition(1);
+            $arr2 = $this->detectTheTargetedArrayForTheCurrentPosition($position);
+            return $arr[$number] .' '. $arr2[1];
+        }
+
+
+
+
+
+
 
 
 
@@ -261,7 +277,9 @@ class Tafqeet extends Helper
         $words = '';
         $words.= $this->getWordsForNumberBeforeComma();
         $words.= $this->getWordsForNumberAfterComma();
-        return $words.='فقط لاغير';
+        $words.='فقط لاغير';
+        return str_replace('  ',' ',$words);
+
     }
 
 
@@ -272,7 +290,7 @@ class Tafqeet extends Helper
 
 }
 
-$work = new Tafqeet('323434.47');
+$work = new Tafqeet('3234434.47');
 
 print_r( $work->run());
 echo  "\n";
