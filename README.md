@@ -8,12 +8,12 @@
 
 
 ### What Is Tafqeet 
-Tafqeet is php script that help you to integrate payments and receipt documents inside you project by convert 
-amout of money into arabic words , it help you to add this words to any thing you want 
+Tafqeet is php script that help you to integrate payments and receipts document inside your project by convert 
+amout into arabic words , it help you to add this words to any thing you want 
 
 ### How To Lunch It 
 very easy just download the code 
-also you can use composer to get fresh instance of the code buy running to next command line 
+also you can use composer to get fresh instance of the code by running the next command line 
 $ composer require 3li3bdalla/tafqeet
 
 after you got fresh instance of the code just navigate to the code folder 
@@ -32,11 +32,11 @@ $ composer dump-autoload -o
 ```
 
 now everything is ready to work 
-just try to browser index.php file or you can use direct php in command line by run the next command
+just try to browser index.php file or you can use direct php  command line by run the next command
 ```
 $ php index.php
 ```
-you should get result of like that 
+you should get result like that 
 ```
 فقط تسعمائة ألف ريال و أربعة و ثلاثون هللة لاغير
 ```
@@ -47,7 +47,7 @@ now open index.php you will see this code
 print_r($core->setAmount('900000.34')->initValidation()->prepare()->run()->result('sar'));
 ```
 
-just replace the number you want with 900000.34 and run the above command you will see it will gives you nice result
+just replace 900000.34  by the number you want  and run the above command you will see it will gives you  result
 
 
 as you see 
@@ -55,7 +55,7 @@ as you see
 result('sar')
 ```
 
-here we spacify the currency you can put and other currecnry as you want like 
+here we spacify the currency you can put any other currecnry as you want like 
 sdg 
 
 also you can add new currency 
