@@ -289,8 +289,3 @@ class Tafqeet extends Helper
 
 
 }
-
-$work = new Tafqeet('3234434.47');
-
-print_r( $work->run());
-echo  "\n";
