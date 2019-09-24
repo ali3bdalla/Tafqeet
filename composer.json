@@ -1,11 +1,17 @@
 {
     "name": "3li3bdalla/tafqeet",
-    "description": "tafqeet , convert numbers to arabic words",
-    "type": "metapackage",
+    "description": "convert numbers to arabic words",
     "authors": [
         {
             "name": "ali abdalla",
             "email": "ali.dev.sd@gmail.com"
         }
-    ]
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Core\\": "core/",
+            "Helper\\": "helper/"
+        }
+    }
 }
