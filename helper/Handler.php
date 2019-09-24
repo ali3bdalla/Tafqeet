@@ -9,7 +9,7 @@ trait Handler
 
     public function setAmount($number = 0)
     {
-        
+
         $this->parsed_number = $number . '';
         return $this;
     }

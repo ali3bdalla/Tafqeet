@@ -20,6 +20,8 @@ trait Calculators
 
 
 
+        if($arr[0] and $arr[1]==0)
+            return '';
 
         if($arr[1]==0)
            return $this->tens[$arr[0]];
@@ -34,6 +36,9 @@ trait Calculators
     public function classC($arr,$len = 3)
     {
 
+
+        if($arr[0]==0 and $arr[1] == 0 and $arr[2] == 0)
+            return '';
 
         if($arr[0]==0 and $arr[1] == 0)
             return $this->ones[$arr[2]];
@@ -89,6 +94,10 @@ trait Calculators
         {
             $conn = ' ';
 
+            if($arr[1]>=2)
+            {
+                $conn = $this->config['connection_tool'];
+            }
             if(in_array($arr[1],[2,1]))
                 $thousands =  $this->others[$arr[1]]  . $conn . $this->tens[$arr[0]] ;
             else
@@ -114,11 +123,13 @@ trait Calculators
             }
             $thousands.=' ' . $this->thousands[39];
         }
-//
 
 
+        if($this->classC($classC)!='')
+            return $thousands . $this->config['connection_tool'] . $this->classC($classC);
 
-        return $thousands  . $this->config['connection_tool'] . $this->classC($classC);
+
+        return $thousands;
 
     }
 
@@ -129,6 +140,56 @@ trait Calculators
 
     public function classF($arr,$len = 6)
     {
+        $classC = [$arr[3],$arr[4],$arr[5]];
+
+
+
+        if($arr[0]!=0)
+        {
+            $conn = ' ';
+
+
+            if($arr[1] == 0 && $arr[2]==0)
+            {
+
+              $thousands =  $this->hundreds[$arr[0]] .' '. $this->thousands[1];
+
+
+            }else{
+                if($arr[1] == 0 )
+                {
+                    $thousands =  $this->hundreds[$arr[0]] .$this->config['connection_tool'].
+                        $this->ones[$arr[2]]  . ' '. $this->thousands[1];
+                }elseif($arr[2] == 0)
+                {
+                    $thousands =  $this->hundreds[$arr[0]] .$this->config['connection_tool'].
+                        $this->tens[$arr[1]]  . ' '. $this->thousands[1];
+                }
+                else
+                {
+                    $thousands =  $this->hundreds[$arr[0]] .$this->config['connection_tool'].
+                        $this->ones[$arr[2]] . $this->config['connection_tool'].
+                        $this->tens[$arr[1]]  . ' '. $this->thousands[1];
+                }
+            }
+
+        }else
+        {
+           return $this->classE([$arr[1],$arr[2],$arr[3],$arr[4],$arr[5]]);
+        }
+
+        if($this->classC($classC)!='')
+                return $thousands . $this->config['connection_tool'] . $this->classC($classC);
+
+
+        return $thousands;
+
+    }
+
+
+    public function classG($arr,$len = 6)
+    {
+        $classC = [$arr[2],$arr[4],$arr[5]];
         $classE = [$arr[1],$arr[2],$arr[3],$arr[4],$arr[5]];
 
 
@@ -147,7 +208,9 @@ trait Calculators
 
 
 
-    public function classG($arr,$len = 7)
+
+
+    public function classH($arr,$len = 9)
     {
         $classE = [$arr[2],$arr[3],$arr[4],$arr[5],$arr[6]];
 

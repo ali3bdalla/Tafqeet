@@ -9,7 +9,8 @@ trait Digit
 
     protected $others = [
         2 => 'اثنتي',
-        1 => 'احد'
+        1 => 'احد',
+        4 => 'اربع'
     ];
 
     protected $ones = [

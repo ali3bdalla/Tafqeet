@@ -2,22 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="38b0b4b2-c969-4b4f-96b2-43d4a6dda474" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/helper/App.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/helper/Calculators.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/helper/Handler.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/helper/Validation.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/coreTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/untitled.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/untitled.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Helper.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Process.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tafqeet.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/Core.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/Core.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/helper/Calculators.php" beforeDir="false" afterPath="$PROJECT_DIR$/helper/Calculators.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/helper/Digit.php" beforeDir="false" afterPath="$PROJECT_DIR$/helper/Digit.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/helper/Handler.php" beforeDir="false" afterPath="$PROJECT_DIR$/helper/Handler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -25,7 +14,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution>
       <executable path="composer" />
@@ -107,7 +96,8 @@
       <updated>1569001441958</updated>
       <workItem from="1569001443076" duration="92000" />
       <workItem from="1569266415867" duration="11346000" />
-      <workItem from="1569329457580" duration="17451000" />
+      <workItem from="1569329457580" duration="18867000" />
+      <workItem from="1569357061571" duration="1362000" />
     </task>
     <servers />
   </component>
@@ -119,7 +109,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
