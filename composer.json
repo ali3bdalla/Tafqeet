@@ -7,11 +7,15 @@
             "email": "ali.dev.sd@gmail.com"
         }
     ],
+    "require-dev": {
+        "phpunit/phpunit": "^8"
+    },
     "require": {},
     "autoload": {
         "psr-4": {
             "Core\\": "core/",
-            "Helper\\": "helper/"
+            "Helper\\": "helper/",
+            "Tests\\": "tests/"
         }
     }
 }
