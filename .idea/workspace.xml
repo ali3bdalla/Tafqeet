@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="38b0b4b2-c969-4b4f-96b2-43d4a6dda474" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/Core.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/Core.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/helper/Calculators.php" beforeDir="false" afterPath="$PROJECT_DIR$/helper/Calculators.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/helper/Digit.php" beforeDir="false" afterPath="$PROJECT_DIR$/helper/Digit.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/helper/Handler.php" beforeDir="false" afterPath="$PROJECT_DIR$/helper/Handler.php" afterDir="false" />
@@ -65,6 +66,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -97,7 +99,7 @@
       <workItem from="1569001443076" duration="92000" />
       <workItem from="1569266415867" duration="11346000" />
       <workItem from="1569329457580" duration="18867000" />
-      <workItem from="1569357061571" duration="1362000" />
+      <workItem from="1569357061571" duration="8308000" />
     </task>
     <servers />
   </component>

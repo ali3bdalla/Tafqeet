@@ -15,7 +15,8 @@ class Core
         'end'=>'لاغير',
         'currencies' => [
             'sar' => [
-                'main'=>'ريال',
+                'main1'=>'ريال',
+                'main2'=>'ريالاً',
                 'single'=>'هللة',
                 'multi'=>'هللات'
             ],
@@ -64,6 +65,7 @@ class Core
      * */
     private $after_comma_len;
     private $after_comma_array;
+    public $after_comma_sum;
 
 
 
@@ -74,6 +76,13 @@ class Core
      * */
     private $result_before_comma;
     private $result_after_comma;
+
+
+
+
+
+
+    private $is_main1_currency = true;
 
     public function run()
     {
@@ -86,11 +95,29 @@ class Core
     public function result($currency = 'sar')
     {
         $result = $this->config['starter'] . ' ';
-        $result.= $this->result_before_comma . ' ' . $this->config['currencies'][$currency]['main'];
+
+        if($this->is_main1_currency){
+            $result.= $this->result_before_comma . ' ' . $this->config['currencies'][$currency]['main1'];
+
+        }else
+        {
+            $result.= $this->result_before_comma . ' ' . $this->config['currencies'][$currency]['main2'];
+
+        }
         if($this->after_comma_len>=1)
         {
-            $result.=$this->config['connection_tool']. $this->result_after_comma . ' ' .
-            $this->config['currencies'][$currency]['single'];
+            if(in_array($this->after_comma_sum,[
+                3,4,5,6,7,8,9,10
+            ]))
+            {
+                $result.=$this->config['connection_tool']. $this->result_after_comma . ' ' .
+                    $this->config['currencies'][$currency]['multi'];
+            }else
+            {
+                $result.=$this->config['connection_tool']. $this->result_after_comma . ' ' .
+                    $this->config['currencies'][$currency]['single'];
+            }
+
         }
 
         $result.=  ' ' . $this->config['end'];

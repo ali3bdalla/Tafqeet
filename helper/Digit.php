@@ -8,10 +8,11 @@ trait Digit
 {
 
     protected $others = [
-        2 => 'اثنتي',
+        2 => 'اثنا',
         1 => 'احد',
         4 => 'اربع'
     ];
+
 
     protected $ones = [
         0 => "صفر",

@@ -37,6 +37,11 @@ trait Handler
         {
             $this->after_comma_array = str_split($this->parsed_number_array[1]);
             $this->after_comma_len = count($this->after_comma_array);
+            foreach ($this->after_comma_array as $digit)
+            {
+                $this->after_comma_sum.=$digit;
+            }
+//            var_dump($this->after_comma_sum);
             return $this;
         }
 
