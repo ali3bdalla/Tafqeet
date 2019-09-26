@@ -2,7 +2,6 @@
     "name": "3li3bdalla/tafqeet",
     "description": "convert numbers into arabic words",
     "type": "composer-plugin",
-    "license": "free",
     "authors": [
         {
             "name": "3li3bdalla",
