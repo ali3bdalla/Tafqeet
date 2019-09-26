@@ -1,7 +1,6 @@
 {
     "name": "3li3bdalla/tafqeet",
     "description": "convert numbers into arabic words",
-    "type": "composer-plugin",
     "license": "Apache-2.0",
     "authors": [
         {
@@ -16,5 +15,5 @@
             "AliAbdalla\\Tafqeet\\Helper\\": "src/helper",
             "AliAbdalla\\Tafqeet\\Core\\": "src/core"
         }
-    }
+    },
 }
