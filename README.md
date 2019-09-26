@@ -32,9 +32,9 @@ $ composer dump-autoload -o
 ```
 
 now everything is ready to work 
-just try to browser index.php file or you can use direct php  command line by run the next command
+just try to browse test.php file or you can use direct php  command line by run the next command
 ```
-$ php index.php
+$ php test.php
 ```
 you should get result like that 
 ```
@@ -42,17 +42,17 @@ you should get result like that
 ```
 
 
-now open index.php you will see this code 
+now open test.php you will see this code 
 ```
-print_r($core->setAmount('900000.34')->initValidation()->prepare()->run()->result('sar'));
+var_dump(Tafqeet::arablic(30));
 ```
 
 just replace 900000.34  by the number you want  and run the above command you will see it will gives you  result
 
 
-as you see 
+also you can add new param to specify the currency like that
 ```
-result('sar')
+var_dump(Tafqeet::arablic(30,'usd'));
 ```
 
 here we spacify the currency you can put any other currecnry as you want like 
@@ -66,22 +66,32 @@ you will see this code
 
 ```
   public $config = [
-        'connection_tool' => ' و ',
+        'connection_tool' => ' و',
         'default_currency' => 'sar',
         'starter'=>'فقط',
         'end'=>'لاغير',
         'currencies' => [
             'sar' => [
-                'main'=>'ريال',
+                'main1'=>'ريال',
+                'main2'=>'ريالاً',
                 'single'=>'هللة',
                 'multi'=>'هللات'
             ],
 
             'sdg' => [
-                'main'=>'جنيه',
+                'main1'=>'قرش',
+                'main2'=>'قرشاً',
                 'single'=>'قرش',
                 'multi'=>'قروش'
             ],
+
+            'usd' => [
+                 'main1'=>'دولار',
+                'main2'=>'دولاراً',
+                'single'=>'سنت',
+                'multi'=>'سنت'
+            ],
+
 
         ],
 
