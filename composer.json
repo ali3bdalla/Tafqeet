@@ -15,5 +15,5 @@
             "AliAbdalla\\Tafqeet\\Helper\\": "src/helper",
             "AliAbdalla\\Tafqeet\\Core\\": "src/core"
         }
-    },
+    }
 }
