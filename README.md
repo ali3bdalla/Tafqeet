@@ -60,7 +60,7 @@ sdg
 
 also you can add new currency 
 
-just open core/Core.php
+just open src/core/Tafqeet.php
 
 you will see this code 
 
