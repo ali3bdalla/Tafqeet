@@ -1,15 +1,15 @@
 <?php
-namespace Core;
-use Helper\Calculators;
-use Helper\Handler;
-use Helper\Validation;
-use Helper\App;
-class Core
+namespace AliAbdalla\Tafqeet\Core;
+use AliAbdalla\Tafqeet\Helper\Calculators;
+use AliAbdalla\Tafqeet\Helper\Handler;
+use AliAbdalla\Tafqeet\Helper\Validation;
+use AliAbdalla\Tafqeet\Helper\App;
+class Tafqeet
 {
     use Calculators,Handler,Validation,App;
 
     public $config = [
-        'connection_tool' => ' و ',
+        'connection_tool' => ' و',
         'default_currency' => 'sar',
         'starter'=>'فقط',
         'end'=>'لاغير',
@@ -84,13 +84,21 @@ class Core
 
     private $is_main1_currency = true;
 
+
+
+    public static function arablic($amount = 0,$currency = 'sar')
+    {
+
+       return (new self)->setAmount($amount)->initValidation()->prepare()->run()->result($currency);
+    }
+
+
     public function run()
     {
         $this->result_before_comma = $this->runBeforeComma();
         $this->result_after_comma = $this->runAfterComma();
         return $this;
     }
-
 
     public function result($currency = 'sar')
     {
@@ -122,7 +130,7 @@ class Core
 
         $result.=  ' ' . $this->config['end'];
 
-        return $result;
+        return str_replace('  ',' ',$result);
     }
 
     public function prepare()

@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Helper;
+namespace AliAbdalla\Tafqeet\Helper;
 
 
 trait Handler
@@ -35,7 +35,15 @@ trait Handler
     {
         if($this->all_numbers_len>=2)
         {
-            $this->after_comma_array = str_split($this->parsed_number_array[1]);
+            $arr = str_split($this->parsed_number_array[1]);
+            if(count($arr)>=3)
+            {
+                $this->after_comma_array = [$arr[0],$arr[1]];
+            }else
+            {
+                $this->after_comma_array = $arr;
+            }
+
             $this->after_comma_len = count($this->after_comma_array);
             foreach ($this->after_comma_array as $digit)
             {

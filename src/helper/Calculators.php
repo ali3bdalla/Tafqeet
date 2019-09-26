@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Helper;
+namespace AliAbdalla\Tafqeet\Helper;
 trait Calculators
 {
     use Digit;
@@ -192,10 +192,10 @@ trait Calculators
         }
 
 
-//        if($this->classC($classC)!='')
-//        {
-//            return $thousands . $this->config['connection_tool'] . $this->classC($classC);
-//        }
+        if($this->classC($classC)!='')
+        {
+            return $thousands . $this->config['connection_tool'] . $this->classC($classC);
+        }
 
 
 

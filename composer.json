@@ -1,21 +1,20 @@
 {
     "name": "3li3bdalla/tafqeet",
-    "description": "convert numbers to arabic words",
+    "description": "convert numbers into arabic words",
+    "type": "composer-plugin",
+    "license": "free",
     "authors": [
         {
-            "name": "ali abdalla",
+            "name": "3li3bdalla",
             "email": "ali.dev.sd@gmail.com"
         }
     ],
-    "require-dev": {
-        "phpunit/phpunit": "^8"
-    },
+    "minimum-stability": "alpha",
     "require": {},
-    "autoload": {
+     "autoload": {
         "psr-4": {
-            "Core\\": "core/",
-            "Helper\\": "helper/",
-            "Tests\\": "tests/"
+            "AliAbdalla\\Tafqeet\\Helper\\": "src/helper",
+            "AliAbdalla\\Tafqeet\\Core\\": "src/core"
         }
     }
 }
