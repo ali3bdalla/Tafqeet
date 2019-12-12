@@ -9,7 +9,7 @@ trait Handler
 
     public function setAmount($number = 0)
     {
-
+	
         $this->parsed_number = $number . '';
         return $this;
     }
@@ -17,6 +17,7 @@ trait Handler
     private function split_parsed_number_to_two_number_depend_on_comma()
     {
         $arr = explode('.',$this->parsed_number);
+	 
         $this->parsed_number_array = $arr;
         $this->all_numbers_len = count($this->parsed_number_array);
         return $this;
@@ -36,6 +37,7 @@ trait Handler
         if($this->all_numbers_len>=2)
         {
             $arr = str_split($this->parsed_number_array[1]);
+           
             if(count($arr)>=3)
             {
                 $this->after_comma_array = [$arr[0],$arr[1]];

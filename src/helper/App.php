@@ -23,6 +23,9 @@ trait App
 
     public function runAfterComma()
     {
+//
+//    	var_dump($this->after_comma_len);
+//    	exit();
         $class =  $this->detectClass($this->after_comma_len);
         $methodName = 'Class' . $class;
         if(method_exists($this,$methodName))
