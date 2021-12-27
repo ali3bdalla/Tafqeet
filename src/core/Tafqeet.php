@@ -84,7 +84,7 @@ namespace AliAbdalla\Tafqeet\Core;
          */
         public static function arablic($amount = 0, $currency = 'sar')
         {
-            $amount = (float) number_format((float) $amount, 2);
+            if(!is_numeric($amount)) return "";
 
             return (new self())->setAmount($amount)->initValidation()->prepare()->run()->result($currency);
         }
