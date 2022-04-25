@@ -10,10 +10,18 @@
     ],
     "minimum-stability": "alpha",
     "require": {},
-     "autoload": {
+    "require-dev": {
+        "phpunit/phpunit": "^9.5"
+    },
+    "autoload": {
         "psr-4": {
             "AliAbdalla\\Tafqeet\\Helper\\": "src/helper",
             "AliAbdalla\\Tafqeet\\Core\\": "src/core"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "AliAbdalla\\Tafqeet\\Tests\\": "tests"
         }
     }
 }
