@@ -16,7 +16,8 @@
     "autoload": {
         "psr-4": {
             "AliAbdalla\\Tafqeet\\Helper\\": "src/helper",
-            "AliAbdalla\\Tafqeet\\Core\\": "src/core"
+            "AliAbdalla\\Tafqeet\\Core\\": "src/core",
+            "AliAbdalla\\Tafqeet\\Exceptions\\": "src/Exceptions"
         }
     },
     "autoload-dev": {
