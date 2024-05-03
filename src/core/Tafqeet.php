@@ -28,8 +28,8 @@ namespace AliAbdalla\Tafqeet\Core;
                 ],
 
                 'sdg' => [
-                    'main1' => 'قرش',
-                    'main2' => 'قرشاً',
+                    'main1' => 'جنيه',
+                    'main2' => 'جنيهاً',
                     'single' => 'قرش',
                     'multi' => 'قروش',
                 ],
